@@ -33,8 +33,8 @@ function App() {
             <Route path="/blocks" element={<BlockList />} />
             <Route path="/block/:blockHash" element={<BlockDetails />} />
             <Route path="/transactions" element={<TransactionList />} />
-            <Route path="/transactions/:txHash" element={<TransactionDetails />} />
-            <Route path="/addresses/:address" element={<AddressDetails />} />
+            <Route path="/transaction/:txHash" element={<TransactionDetails />} />
+            <Route path="/address/:addressHash" element={<AddressDetails />} />
           </Routes>
         </main>
         <Footer />

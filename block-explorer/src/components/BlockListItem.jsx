@@ -6,23 +6,60 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 1rem;
-  border-bottom: 1px solid #eee;
+  text-decoration: none;
+  max-width: 800px;
+  padding: 2rem;
+  border-radius: 5px;
   &:hover {
     background-color: #f5f5f5;
   }
+  margin-bottom: 2rem;
+  background-color: #fff;
+`;
+
+const ItemBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-decoration: none;
+
+  justify-content: center;
+`;
+
+const H3 = styled.h3`
+  font-size: 1.25rem;
+  font-weight: 700;
+  underline: none;
+
+  margin: 0;
+  padding: 1rem;
+`;
+
+const P = styled.p`
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: "Major Mono Display", monospace;
+  padding: 1rem;
+  margin: 0;
+`;
+
+const Link1 = styled(Link)`
+  text-decoration: none;
+  color: #212529;
+  margin: 0;
+  font-family: "Major Mono Display", monospace;
 `;
 
 const BlockListItem = ({ block }) => {
   return (
     <Wrapper>
-      <div>
-        <Link to={`/block/${block.height}`}>
-          <h3>{block.height}</h3>
-        </Link>
-        <p>{block.hash}</p>
-      </div>
-      <p>{block.time}</p>
+      <ItemBox>
+        <Link1 to={`/block/${block.height}`}>
+          <H3>BLOCK NUMBER: {block.height}</H3>
+        </Link1>
+        <P>BLOCK HASH: {block.hash}</P>
+      </ItemBox>
+      <P>{block.time}</P>
     </Wrapper>
   );
 };

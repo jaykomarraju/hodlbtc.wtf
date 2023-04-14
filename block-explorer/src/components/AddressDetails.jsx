@@ -11,38 +11,66 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  background-color: #E5C687;
 `;
 
-const Address = styled.div`
+
+const AddrBox = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
+  align-items: flex-start;
+  text-decoration: none;
+  justify-content: center;
+  max-width: 800px;
+  padding: 2rem;
+  border-radius: 5px;
+  // &:hover {
+  //   background-color: #f5f5f5;
+  // }
+  margin-bottom: 2rem;
+  background-color: #fff;
 `;
 
-const AddressTitle = styled.h2`
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 10px;
+const Heading = styled.h2`
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  padding: 2rem;
+  font-family: "Major Mono Display", monospace;
 `;
 
-const AddressHash = styled.p`
+const AddrDetail = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-decoration: none;
+  justify-content: center;
+  max-width: 800px;
+  padding: 2rem;
+  border-radius: 5px;
+  &:hover {
+    background-color: #f5f5f5;
+  }
+  // margin-bottom: 2rem;
+  background-color: #fff;
+`;
+
+const AddrDetailHeading = styled.h3`
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+
+  // padding: 1rem;
+`;
+
+const AddrDetailValue = styled.p`
   font-size: 1rem;
   font-weight: 400;
-  margin-bottom: 10px;
+  font-family: "Major Mono Display", monospace;
+  // padding: 1rem;
+  margin: 0;
 `;
 
-const AddressBalance = styled.p`
-  font-size: 1rem;
-  font-weight: 400;
-  margin-bottom: 10px;
-`;
-
-const AddressTransactions = styled.p`
-  font-size: 1rem;
-  font-weight: 400;
-  margin-bottom: 10px;
-`;
 
 const AddressDetails = () => {
   const [address, setAddress] = useState(null);
@@ -51,17 +79,18 @@ const AddressDetails = () => {
   const { addressHash } = useParams();
 
   useEffect(() => {
-    const fetchAddressData = async () => {
+    const fetchAddressDetails = async () => {
       try {
-        const data = await fetchAddress(addressHash);
-        setAddress(data);
+        const address = await fetchAddress(addressHash);
+        console.log(address);
+        setAddress(address);
         setLoading(false);
       } catch (error) {
         setError(true);
         setLoading(false);
       }
     };
-    fetchAddressData();
+    fetchAddressDetails();
   }, [addressHash]);
 
   if (loading) {
@@ -72,19 +101,34 @@ const AddressDetails = () => {
     return <Error />;
   }
 
+
   return (
     <Wrapper>
-      <Address>
-        <AddressTitle>Address Details</AddressTitle>
-        <AddressHash>{address.address}</AddressHash>
-        <AddressBalance>
-          Balance: {address.final_balance / 100000000} BTC
-        </AddressBalance>
-        <AddressTransactions>
-          Total Transactions: {address.total_transactions}
-        </AddressTransactions>
-      </Address>
-      <TransactionList transactions={address.txrefs} />
+      <AddrBox>
+        <Heading>Address Details</Heading>
+        <AddrDetail>
+          <AddrDetailHeading>Address</AddrDetailHeading>
+          <AddrDetailValue>{address.address}</AddrDetailValue>
+        </AddrDetail>
+        <AddrDetail>
+          <AddrDetailHeading>Balance</AddrDetailHeading>
+          <AddrDetailValue>{(address.chain_stats.funded_txo_sum - address.chain_stats.spent_txo_sum)*
+              0.00000001 +
+              " BTC"} </AddrDetailValue>
+        </AddrDetail>
+        <AddrDetail>
+          <AddrDetailHeading>Total Received</AddrDetailHeading>
+          <AddrDetailValue>{(address.chain_stats.funded_txo_sum)*
+              0.00000001 +
+              " BTC"} </AddrDetailValue>
+        </AddrDetail>
+        <AddrDetail>
+          <AddrDetailHeading>Total Sent</AddrDetailHeading>
+          <AddrDetailValue>{(address.chain_stats.spent_txo_sum)*
+              0.00000001 +
+              " BTC"} </AddrDetailValue>
+        </AddrDetail>
+      </AddrBox>
     </Wrapper>
   );
 };

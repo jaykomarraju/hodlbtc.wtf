@@ -30,8 +30,12 @@ const BlockList = () => {
     const fetchAPI = async () => {
       const latestBlock = await fetchLatestBlock();
       const endBlock = latestBlock.height;
-      const startBlock = endBlock - blocksPerPage * (currentPage - 1);
+      console.log(endBlock);
+      // const startBlock = endBlock - blocksPerPage * (currentPage - 1);
+      const startBlock = endBlock - blocksPerPage * (currentPage);
+      console.log(startBlock);
       setBlocks(await fetchBlocksInRange(startBlock, endBlock));
+      console.log(blocks);
     };
 
     fetchAPI();

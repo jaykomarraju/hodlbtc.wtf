@@ -18,7 +18,7 @@ const Wrapper = styled.div`
 const Input = styled.input`
   width: 100%;
   padding: 0.75rem;
-  border: 1px solid #ccc;
+  border: 1.5px solid #33A1FD;
   border-radius: 0.25rem;
   font-size: 1rem;
   outline: none;
@@ -26,8 +26,8 @@ const Input = styled.input`
 
 const Button = styled.button`
 padding: 0.75rem 1.25rem;
-  background: #fff;
-  color: #33A1FD;
+  background: #33A1FD;
+  color: #fff;
   border: 1.5px solid #33A1FD;
   border-radius: 5px;
   font-size: 1rem;
@@ -37,8 +37,8 @@ padding: 0.75rem 1.25rem;
   transition: all 0.2s ease-in-out;
 
     &:hover {
-        background: #33A1FD;
-        color: #fff;
+        background: #fff;
+        color: #33A1FD;
         border: 1.5px solid #33A1FD;
     }
 
@@ -52,14 +52,18 @@ const SearchBar = () => {
         if (inputValue) {
         try {
             const block = await fetchBlock(inputValue);
-            navigate(`/block/${block.hash}`);
+            console.log(block);
+            navigate(`/block/${block.id}`);
         } catch (error) {
+            console.log(error);
             try {
             const transaction = await fetchTransaction(inputValue);
-            navigate(`/transaction/${transaction.hash}`);
+            console.log(transaction);
+            navigate(`/transaction/${transaction.txid}`);
             } catch (error) {
             try {
                 const address = await fetchAddress(inputValue);
+                console.log(address);
                 navigate(`/address/${address.address}`);
             } catch (error) {
                 alert("Invalid search input");
@@ -73,7 +77,7 @@ const SearchBar = () => {
         <Wrapper>
         <Input
             type="text"
-            placeholder="Search for a block, transaction, or address"
+            placeholder="Search for a block, transaction, or address by hash code"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
         />
