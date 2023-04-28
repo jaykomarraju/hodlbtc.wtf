@@ -126,10 +126,10 @@ const BlockDetails = () => {
             <BlockDetailHeading>BLOCK TIMESTAMP</BlockDetailHeading>
             <BlockDetailValue> {convertUnixTime(block.timestamp)}</BlockDetailValue>
           </BlockDetail>
-          <BlockDetail>
+          {/* <BlockDetail>
             <BlockDetailHeading>PREVIOUS BLOCK</BlockDetailHeading>
             <BlockDetailValue> {block.previousblockhash}</BlockDetailValue>
-          </BlockDetail>
+          </BlockDetail> */}
           {/* <p>Next Block: {block.next_block}</p> */}
           <BlockDetail>
             <BlockDetailHeading>TRANSACTIONS IN BLOCK</BlockDetailHeading>{" "}

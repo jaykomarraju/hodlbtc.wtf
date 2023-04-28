@@ -75,8 +75,8 @@ const H2 = styled.h2`
 
 // create a banner component that is a promotional banner to The Bitcoin Maximalist Hoodie available at bitcoinmaximalistclub.com. The banner should be displayed at the top of the page and should be styled with a background color, text color, and padding. The text should be centered at the start but must be moving in a continuous loop from right to left.
 const Banner = styled.div`
-  background-color: #e5c687;
-  color: #000;
+  background-color: #33a1fd;
+  color: #fff;
   padding: 1rem 2rem;
   text-align: center;
   font-size: 1.25rem;
@@ -88,7 +88,7 @@ const Banner = styled.div`
 
 const A = styled.a`
   text-decoration: none;
-  color: #0f0f0f;
+  color: #fff;
   display: inline-block;
   width: 100%;
   position: relative;

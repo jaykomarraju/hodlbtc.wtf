@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 
 const Input = styled.input`
   width: 100%;
-  padding: 0.75rem;
+  padding: 1.25rem;
   border: 1.5px solid #33A1FD;
   border-radius: 0.25rem;
   font-size: 1rem;
@@ -25,7 +25,7 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
-padding: 0.75rem 1.25rem;
+padding: 1.25rem 1.25rem;
   background: #33A1FD;
   color: #fff;
   border: 1.5px solid #33A1FD;

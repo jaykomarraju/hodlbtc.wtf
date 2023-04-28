@@ -5,6 +5,8 @@ import Loader from "./Loader";
 import Error from "./Error";
 import SearchBar from "./SearchBar";
 import styled from "styled-components";
+import Lottie from "lottie-react";
+import animationData from "../lotties/coins.json";
 
 const Wrapper = styled.div`
   display: flex;
@@ -14,6 +16,18 @@ const Wrapper = styled.div`
   padding: 1rem;
   margin: 0 auto;
   background: #33a1fd;
+`;
+
+const Flexer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  margin: 0 auto;
+  background: #ededed;
+  border-radius: 25px;
+  margin-bottom: 1rem;
 `;
 
 const Hero = styled.div`
@@ -50,7 +64,7 @@ const HeroButton = styled(Link)`
   padding: 0.75rem 1.25rem;
   background: #fff;
   color: #000;
-  border: 1.5px solid #E5C687;
+  border: 1.5px solid #e5c687;
   border-radius: 5px;
   text-decoration: none;
   font-size: 1rem;
@@ -59,7 +73,7 @@ const HeroButton = styled(Link)`
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    background: #E5C687;
+    background: #e5c687;
     color: #000;
   }
 `;
@@ -75,12 +89,13 @@ const LatestBlockBox = styled.div`
   flex-direction: column;
   // align-items: center;
   // justify-content: center;
+  max-width: 650px;
   padding: 1rem;
   margin: 2rem auto;
   background: #fff;
   // max-width: 650px;
   width: 90%;
-  border: 4.5px solid #E5C687;
+  border: 4.5px solid #ededed;
   border-radius: 6px;
   // box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 1rem;
@@ -93,7 +108,7 @@ const LatestBlockBox = styled.div`
   }
 
   :hover {
-    background: #E5C687;
+    background: #ededed;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
 `;
@@ -108,7 +123,7 @@ const WhitePaperBox = styled.div`
   margin: 2rem auto;
   background: #fff;
   max-width: 650px;
-  border: 4.5px solid #E5C687;
+  border: 4.5px solid #ededed;
   border-radius: 6px;
   // box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 1rem;
@@ -121,11 +136,10 @@ const WhitePaperBox = styled.div`
   }
 
   :hover {
-    background: #E5C687;
+    background: #ededed;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
 `;
-
 
 const BlockDetailHeading = styled.h3`
   font-size: 1.25rem;
@@ -165,7 +179,13 @@ const BlockDetail = styled.div`
   // margin-bottom: 1rem;
 `;
 
-
+const Div = styled.div`
+  display: flex;
+  flex: 3;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
 
 const HomePage = () => {
   const [latestBlock, setLatestBlock] = useState(null);
@@ -194,11 +214,23 @@ const HomePage = () => {
   return (
     <Wrapper>
       <Hero>
-        <HeroTitle>hodlbtc.WTF</HeroTitle>
-        <HeroSubtitle>Explore the Bitcoin blockchain with just a hash code!</HeroSubtitle>
-        {/* <HeroButton to="/blocks">View Blocks</HeroButton> */}
-        {/* <HeroImage src="/images/bitcoin.png" alt="Bitcoin" /> */}
-
+        <Flexer>
+          <Lottie
+            animationData={animationData}
+            loop={false}
+            autoplay={true}
+            speed={1}
+            style={{ width: "40%"}}
+          />
+          <Div>
+            <HeroTitle>hodlbtc.WTF</HeroTitle>
+            <HeroSubtitle>
+              Explore the Bitcoin blockchain with just a hash code!
+            </HeroSubtitle>
+            {/* <HeroButton to="/blocks">View Blocks</HeroButton> */}
+            {/* <HeroImage src="/images/bitcoin.png" alt="Bitcoin" /> */}
+          </Div>
+        </Flexer>
         <SearchBar />
         {isLoading && <Loader />}
         {error && <Error error={error} />}
@@ -229,7 +261,6 @@ const HomePage = () => {
                 {convertUnixTime(latestBlock.timestamp)}
               </BlockDetailValue>
             </BlockDetail>
-
           </LatestBlockBox>
         )}
         <WhitePaperBox>
@@ -267,13 +298,13 @@ const HomePage = () => {
           </p>
           <p>
             The history of "HODL" can be traced back to December 18, 2013, when
-            a user posted on the BitcoinTalk forum with the
-            title "I AM HODLING." The post was made during a period of
-            significant volatility in the Bitcoin market, and the author
-            expressed their frustration with attempts to time the market and
-            trade based on price fluctuations. The post resonated with many in
-            the community, and "HODL" quickly gained popularity as a rallying
-            cry for long-term investors in cryptocurrencies.
+            a user posted on the BitcoinTalk forum with the title "I AM
+            HODLING." The post was made during a period of significant
+            volatility in the Bitcoin market, and the author expressed their
+            frustration with attempts to time the market and trade based on
+            price fluctuations. The post resonated with many in the community,
+            and "HODL" quickly gained popularity as a rallying cry for long-term
+            investors in cryptocurrencies.
           </p>
           <p>
             Over time, some users have attempted to attribute an acronymic
