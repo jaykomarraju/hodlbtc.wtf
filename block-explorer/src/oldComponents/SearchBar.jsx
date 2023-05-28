@@ -18,28 +18,30 @@ const Wrapper = styled.div`
 const Input = styled.input`
   width: 100%;
   padding: 0.75rem;
-  border: 1.5px solid #33A1FD;
+  border: 1.5px solid #fff;
   border-radius: 0.25rem;
+  background: transparent;
   font-size: 1rem;
   outline: none;
 `;
 
 const Button = styled.button`
 padding: 0.75rem 1.25rem;
-  background: #33A1FD;
-  color: #fff;
-  border: 1.5px solid #33A1FD;
-  border-radius: 5px;
+  
+  border-radius: 15px;
   font-size: 1rem;
   margin-left: 0.5rem;
   cursor: pointer;
+  background: #020202;
+        color: #fff;
+        border: 1.5px solid #fff;
   outline: none;
   transition: all 0.2s ease-in-out;
 
     &:hover {
         background: #fff;
-        color: #33A1FD;
-        border: 1.5px solid #33A1FD;
+  color: #020202;
+  border: 1.5px solid #fff;
     }
 
 `;
