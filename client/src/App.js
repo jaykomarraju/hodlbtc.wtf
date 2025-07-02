@@ -4,65 +4,66 @@ import styled from 'styled-components';
 
 const AppContainer = styled.div`
   min-height: 100vh;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  background: #0a0a0a;
   color: #ffffff;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 `;
 
 const Header = styled.header`
-  background: linear-gradient(90deg, #F7931A 0%, #FFD700 100%);
-  padding: 2rem 0;
+  background: #1a1a1a;
+  padding: 3rem 0;
   text-align: center;
-  box-shadow: 0 4px 20px rgba(247, 147, 26, 0.3);
+  border-bottom: 1px solid #333;
 `;
 
 const Logo = styled.h1`
   margin: 0;
-  font-size: 3rem;
-  font-weight: 900;
-  color: #1a1a1a;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #F7931A;
   letter-spacing: -0.02em;
+  font-family: 'Space Grotesk', sans-serif;
 `;
 
 const Tagline = styled.p`
-  margin: 0.5rem 0 0 0;
-  font-size: 1.2rem;
-  color: #1a1a1a;
-  font-weight: 600;
-  opacity: 0.9;
+  margin: 1rem 0 0 0;
+  font-size: 1.1rem;
+  color: #888;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 `;
 
 const MainContent = styled.main`
   max-width: 800px;
   margin: 0 auto;
-  padding: 3rem 2rem;
+  padding: 4rem 2rem;
 `;
 
 const MarkdownContainer = styled.div`
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 8px;
   padding: 3rem;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 
   h1 {
     color: #F7931A;
     font-size: 2.5rem;
-    font-weight: 900;
-    margin-bottom: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
     text-align: center;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: -0.02em;
   }
 
   h2 {
-    color: #FFD700;
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin: 2.5rem 0 1rem 0;
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 3rem 0 1.5rem 0;
     border-bottom: 2px solid #F7931A;
     padding-bottom: 0.5rem;
+    letter-spacing: -0.01em;
   }
 
   p {
@@ -70,6 +71,7 @@ const MarkdownContainer = styled.div`
     line-height: 1.7;
     margin-bottom: 1.5rem;
     color: #e0e0e0;
+    font-weight: 400;
   }
 
   ul {
@@ -82,42 +84,47 @@ const MarkdownContainer = styled.div`
     line-height: 1.6;
     margin-bottom: 0.8rem;
     color: #e0e0e0;
+    font-weight: 400;
   }
 
   strong {
     color: #F7931A;
-    font-weight: 700;
+    font-weight: 600;
   }
 
   em {
-    color: #FFD700;
+    color: #ffffff;
     font-style: italic;
+    font-weight: 500;
   }
 
   hr {
     border: none;
-    height: 2px;
-    background: linear-gradient(90deg, #F7931A, #FFD700);
+    height: 1px;
+    background: #333;
     margin: 3rem 0;
-    border-radius: 1px;
   }
 
   blockquote {
-    border-left: 4px solid #F7931A;
+    border-left: 3px solid #F7931A;
     padding-left: 1.5rem;
     margin: 2rem 0;
     font-style: italic;
     color: #b0b0b0;
+    background: #0a0a0a;
+    padding: 1rem 1.5rem;
+    border-radius: 0 4px 4px 0;
   }
 `;
 
 const Footer = styled.footer`
   text-align: center;
   padding: 2rem;
-  color: #888;
+  color: #666;
   font-size: 0.9rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid #333;
   margin-top: 3rem;
+  background: #1a1a1a;
 `;
 
 const markdownContent = `# HODL BITCOIN: Why Holding is a Winning Strategy
